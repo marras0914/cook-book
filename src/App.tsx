@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import { Provider } from 'react-redux';
+// import { composeWithDevTools } from 'redux-devtools-extension';
+// import { applyMiddleware, createStore } from 'redux';
 
-function App() {
+// import createSagaMiddleware from 'redux-saga';
+// import rootReducer from './reducers/rootReducer';
+// import rootSaga from './sagas/rootSaga';
+
+import Ingredients from './components/ingredients';
+
+// const sagaMiddleware = createSagaMiddleware();
+
+// const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+
+// sagaMiddleware.run(rootSaga);
+
+export default () => {
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // <Provider store={store} name="Cook Book">
+      <Router>
+        <Switch>
+          <Route path="/ingredients" exact component={Ingredients} />
+        </Switch>
+      </Router>
+    // </Provider>
   );
-}
-
-export default App;
+};
