@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import mockRecipe from './mockData/recipe.json';
+
 // import { Provider } from 'react-redux';
 // import { composeWithDevTools } from 'redux-devtools-extension';
 // import { applyMiddleware, createStore } from 'redux';
@@ -10,6 +10,7 @@ import mockRecipe from './mockData/recipe.json';
 // import rootSaga from './sagas/rootSaga';
 
 import Ingredients from './components/ingredients';
+import Recipes from './components/recipes';
 
 // const sagaMiddleware = createSagaMiddleware();
 
@@ -22,7 +23,8 @@ const App: React.SFC<IAppProps> = () => {
     // <Provider store={store} name="Cook Book">
     <Router>
       <Switch>
-        <Route exact path="/ingredients" component={Ingredients} />
+        <Route exact path="/" component={Recipes} />
+        <Route exact path="/recipe/:recipeName/ingredients" component={Ingredients} />
       </Switch>
     </Router>
     // </Provider>
