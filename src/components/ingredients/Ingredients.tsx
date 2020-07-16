@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Wrapper, StyledList } from '../../common/styles';
+import { BackButton } from '../../common';
 // import { RouteComponentProps } from 'react-router-dom';
 import mockRecipe from '../../mockData/recipes.json';
 
@@ -11,7 +12,6 @@ export interface Ingredient {
 }
 
 const Ingredients: React.SFC<IngredientsProps> = () => {
-  console.log('yo');
   const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
   const getIngredients = async () => {
@@ -32,6 +32,7 @@ const Ingredients: React.SFC<IngredientsProps> = () => {
           <div key={item.name}>{item.name}</div>
         ))}
       </StyledList>
+      <BackButton />
     </Wrapper>
   );
 };
