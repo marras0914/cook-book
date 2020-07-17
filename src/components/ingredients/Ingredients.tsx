@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import React, { SFC, useEffect, useState, FunctionComponent } from 'react';
 import { Wrapper, StyledList } from '../../common/styles';
 import { BackButton } from '../../common';
-// import { RouteComponentProps } from 'react-router-dom';
-import mockRecipe from '../../mockData/recipes.json';
+import { RouteComponentProps } from 'react-router-dom';
+import { Ingredient } from '../../types';
 
-interface IngredientsProps {}
-export interface Ingredient {
-  family?: string;
-  name: string;
-  quantity: string;
+interface IngredientsProps {
+  ingredients: Ingredient[];
 }
 
-const Ingredients: React.SFC<IngredientsProps> = () => {
-  const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+const Ingredients: SFC<IngredientsProps> = ({ ingredients }) => {
+  // const [ingredients, setIngredients] = useState<Ingredient[]>([]);
 
-  const getIngredients = async () => {
-    // let r = await fetch('/api/recipe/:recipe/ingredients');
-    // let ingredients = r.json();
-    const ingredients = mockRecipe.recipes[0].ingredients;
-    setIngredients(ingredients);
-  };
+  // const getIngredients = async () => {
+  //   // let r = await fetch('/api/recipe/:recipe/ingredients');
+  //   // let ingredients = r.json();
+  //   const ingredients = mockRecipe.recipes[0].ingredients;
+  //   setIngredients(ingredients);
+  // };
 
-  useEffect(() => {
-    getIngredients();
-  }, []);
+  // useEffect(() => {
+  //   getIngredients();
+  // }, []);
 
   return (
     <Wrapper>

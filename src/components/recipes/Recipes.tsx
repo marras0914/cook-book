@@ -1,42 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { Wrapper, StyledList } from '../../common/styles';
-import { Ingredient } from '../ingredients/Ingredients';
-import mockRecipe from '../../mockData/recipes.json';
 import { Link } from 'react-router-dom';
+import { Wrapper, StyledList } from '../../common/styles';
+import { Recipe } from '../../types';
 
-interface RecipeProps {}
-
-interface Instruction {
-  step: number;
-  instruction: string;
-  ingredients?: string[];
+interface RecipeProps {
+  recipes: Recipe[];
 }
 
-interface Recipe {
-  name: string;
-  ingredients: Ingredient[];
-  instructions: Instruction[];
-  tools: string[];
-}
-
-const Recipes: React.SFC<RecipeProps> = () => {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const getRecipes = async () => {
-    // let r = await fetch('/api/recipe/:recipe/Recipes');
-    // let Recipes = r.json();
-    const recipes = mockRecipe.recipes;
-    setRecipes(recipes);
-  };
-
-  useEffect(() => {
-    getRecipes();
-  }, []);
-
+const Recipes: React.SFC<RecipeProps> = ({ recipes }) => {
   return (
     <Wrapper>
       <StyledList>
         {recipes.map(item => (
-          <Link to={`/recipe/${item.name}/ingredients`}>{item.name}</Link>
+          <Link to={`/recipe/${item.id}/ingredients`}>{item.name}</Link>
         ))}
       </StyledList>
     </Wrapper>

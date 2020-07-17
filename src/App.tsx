@@ -1,5 +1,13 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import React, { useState, useEffect, SFC } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  RouteComponentProps,
+  useRouteMatch,
+} from 'react-router-dom';
+import { Recipe } from './types';
+import mockRecipe from './mockData/recipes.json';
 
 // import { Provider } from 'react-redux';
 // import { composeWithDevTools } from 'redux-devtools-extension';
@@ -18,13 +26,39 @@ import Recipes from './components/recipes';
 
 // sagaMiddleware.run(rootSaga);
 
-const App: React.SFC<IAppProps> = () => {
+const App: SFC<IAppProps> = () => {
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const getRecipes = async () => {
+    // let r = await fetch('/api/recipe/:recipe/Recipes');
+    // let Recipes = r.json();
+    const recipes = mockRecipe.recipes;
+    setRecipes(recipes);
+  };
+
+  useEffect(() => {
+    getRecipes();
+  }, []);
+  console.log(recipes);
+  // const match = useRouteMatch();
+
+  // const matchRecipe = recipes.find(r => r.name === match.params.name);
   return (
     // <Provider store={store} name="Cook Book">
     <Router>
       <Switch>
-        <Route exact path="/" component={Recipes} />
-        <Route exact path="/recipe/:recipeName/ingredients" component={Ingredients} />
+        <Route exact path="/" render={() => <Recipes recipes={recipes} />} />
+        <Route
+          exact
+          path="/recipe/:recipeId/ingredients"
+          render={({ match }) => {
+            const recipe = recipes.find((r: Recipe) => r.id === match.params.recipeId);
+            return recipe ? (
+              <Ingredients ingredients={recipe.ingredients} />
+            ) : (
+              <div>Recipe is undefinened</div>
+            );
+          }}
+        />
       </Switch>
     </Router>
     // </Provider>
@@ -33,6 +67,11 @@ const App: React.SFC<IAppProps> = () => {
 
 interface IAppProps {}
 
+// const test = ({match}) => (
+//   <div>
+//     {match.params.recipeId}
+//   </div>
+// )
 // interface IAppState {
 
 // }
