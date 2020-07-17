@@ -55,7 +55,7 @@ const App: SFC<IAppProps> = () => {
             return recipe ? (
               <Ingredients ingredients={recipe.ingredients} />
             ) : (
-              <div>Recipe is undefinened</div>
+              <div>Recipe is undefined</div>
             );
           }}
         />
