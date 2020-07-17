@@ -2,9 +2,9 @@ module.exports = {
   roots: [
     '<rootDir>/src',
   ],
-  // transform: {
-  //   '^.+\\.tsx?$': 'ts-jest',
-  // },
+  transform: {
+    '^.+\\.tsx?$': 'ts-jest',
+  },
   moduleFileExtensions: [
     'ts',
     'tsx',
@@ -13,15 +13,15 @@ module.exports = {
     'json',
     'node',
   ],
-  // setupFiles: ['<rootDir>/enzyme.config.js'],
+  setupFiles: ['<rootDir>/setupTest.js'],
   testEnvironment: 'jsdom',
-  testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
+  // testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   testURL: 'http://localhost',
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   verbose: false,
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
   coverageDirectory: 'coverage',
   coverageThreshold: {
     global: {
