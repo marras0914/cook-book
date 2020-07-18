@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Recepes Renders a list of recipes 1`] = `
+<styled.div>
+  <styled.div>
+    <Link
+      to="/recipe/1234/ingredients"
+    >
+      Creamy Chicken Poblano Soup
+    </Link>
+    <Link
+      to="/recipe/5678/ingredients"
+    >
+      Ham Sandwich
+    </Link>
+  </styled.div>
+</styled.div>
+`;

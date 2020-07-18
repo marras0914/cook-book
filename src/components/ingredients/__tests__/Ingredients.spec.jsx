@@ -18,14 +18,4 @@ describe('Ingredients', () => {
     const ingredients = shallow(<Ingredients ingredients={recipe} />);
     expect(ingredients).toMatchSnapshot();
   });
-
-  // it('Renders link to Google with classname', () => {
-  //   const link = shallow(
-  //     <Link href="http://google.com" className="my-link-class">
-  //       {' '}
-  //       Link to Google
-  //     </Link>,
-  //   );
-  //   expect(link).toMatchSnapshot();
-  // });
 });
