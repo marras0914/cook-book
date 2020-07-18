@@ -21,7 +21,7 @@ module.exports = {
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
   verbose: false,
   collectCoverage: true,
-  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}'],
+  collectCoverageFrom: ['src/**/*.{js,jsx,ts,tsx}', '!src/**/*/index.{js,ts}'],
   coverageDirectory: 'coverage',
   coverageThreshold: {
     global: {
