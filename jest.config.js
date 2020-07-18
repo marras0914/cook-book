@@ -15,7 +15,7 @@ module.exports = {
   ],
   setupFiles: ['<rootDir>/setupTest.js'],
   testEnvironment: 'jsdom',
-  // testMatch: ['**/__tests__/**/*.js?(x)', '**/?(*.)+(spec|test).js?(x)'],
+  testMatch: ['**/__tests__/**/*.(js?(x)|ts?(x))', '**/?(*.)+(spec|test).(js?(x)|ts?(x))'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
   testURL: 'http://localhost',
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
@@ -31,4 +31,5 @@ module.exports = {
       statements: 90,
     },
   },
+  snapshotSerializers: ['enzyme-to-json/serializer'],
 };
