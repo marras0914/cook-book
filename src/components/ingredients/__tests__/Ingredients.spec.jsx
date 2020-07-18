@@ -1,10 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-
-import Ingredients from '../Ingredients.tsx';
+import Ingredients from '../Ingredients';
 
 describe('Ingredients', () => {
-  const ingredients = [
+  const recipe = [
     {
       name: 'poblano pepper',
       quantity: '3',
@@ -16,7 +15,7 @@ describe('Ingredients', () => {
   ];
 
   it('Renders a list of ingredients', () => {
-    const ingredients = shallow(<Ingredients ingredients={ingredients} />);
+    const ingredients = shallow(<Ingredients ingredients={recipe} />);
     expect(ingredients).toMatchSnapshot();
   });
 

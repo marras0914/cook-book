@@ -3,7 +3,7 @@ module.exports = {
     '<rootDir>/src',
   ],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.(js|jsx|ts|tsx)$': 'ts-jest',
   },
   moduleFileExtensions: [
     'ts',
@@ -13,7 +13,7 @@ module.exports = {
     'json',
     'node',
   ],
-  setupFiles: ['<rootDir>/setupTest.js'],
+  // setupFiles: ['<rootDir>/setupTests.js'],
   testEnvironment: 'jsdom',
   testMatch: ['**/__tests__/**/*.(js?(x)|ts?(x))', '**/?(*.)+(spec|test).(js?(x)|ts?(x))'],
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
@@ -32,4 +32,5 @@ module.exports = {
     },
   },
   snapshotSerializers: ['enzyme-to-json/serializer'],
+  setupFilesAfterEnv: ['<rootDir>/src/setupEnzyme.ts'],
 };
