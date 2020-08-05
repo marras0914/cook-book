@@ -3,16 +3,26 @@
 exports[`Ingredients Renders a list of ingredients 1`] = `
 <styled.div>
   <styled.div>
-    <div
+    <styled.div
       key="poblano pepper"
     >
-      poblano pepper
-    </div>
-    <div
+      <div>
+        3
+      </div>
+      <div>
+        poblano pepper
+      </div>
+    </styled.div>
+    <styled.div
       key="chicken"
     >
-      chicken
-    </div>
+      <div>
+        3 lbs
+      </div>
+      <div>
+        chicken
+      </div>
+    </styled.div>
   </styled.div>
   <BackButton />
 </styled.div>

@@ -1,5 +1,5 @@
 import React, { SFC } from 'react';
-import { Wrapper, StyledList } from '../../common/styles';
+import { Wrapper, StyledList, StyledListItem } from '../../common/styles';
 import { BackButton } from '../../common';
 import { Ingredient } from '../../types';
 
@@ -12,7 +12,10 @@ const Ingredients: SFC<IngredientsProps> = ({ ingredients }) => {
     <Wrapper>
       <StyledList>
         {ingredients.map(item => (
-          <div key={item.name}>{item.name}</div>
+          <StyledListItem key={item.name}>
+            <div>{item.quantity}</div>
+            <div>{item.name}</div>
+          </StyledListItem>
         ))}
       </StyledList>
       <BackButton />

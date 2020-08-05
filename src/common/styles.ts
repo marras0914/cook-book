@@ -8,7 +8,18 @@ export const Wrapper = styled.div`
 export const StyledList = styled.div`
   display: flex;
   flex-flow: column;
+  max-width: 15rem;
+  background-color: ${Color.gold};
+  padding: 1rem;
+`;
+
+export const StyledListItem = styled.div`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  padding: 0.5rem 0;
   width: 100%;
+  color: ${Color.text};
 `;
 
 export const StyledBackButton = styled.button`
@@ -23,4 +34,9 @@ export const StyledBackButton = styled.button`
   cursor: pointer;
   font-weight: 600;
   text-align: center;
+`;
+
+
+export const StyledPage = styled.div`
+  diplay: flex; 
 `;
